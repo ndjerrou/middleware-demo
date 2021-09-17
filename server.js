@@ -2,6 +2,8 @@ const express = require('express');
 
 const app = express();
 
+app.use(express.json()); // first middle ware : express.json()
+
 const users = [
   { name: 'Nissim', age: 30, likes: ['football', 'hockey'] },
   { name: 'Chloe', age: 40, likes: ['Box', 'Cars'] },
