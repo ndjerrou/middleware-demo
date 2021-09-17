@@ -4,11 +4,14 @@ const Joi = require('joi');
 const helmet = require('helmet');
 const morgan = require('morgan');
 
+const logger = require('./middlewares/logger');
+
 const app = express();
 
 app.use(express.json()); // first middleware : express.json()
 app.use(helmet()); //Second middleware : set secure headers
 app.use(morgan('tiny')); //Third middleware : log each incoming request
+app.use(logger); // 4rd middlewaere : a custom one !
 
 const users = [
   { name: 'Nissim', age: 30, likes: ['football', 'hockey'] },
