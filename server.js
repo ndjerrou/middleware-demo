@@ -35,6 +35,7 @@ app.post('/users', (req, res) => {
   if (result.error)
     return res.status(400).send(result.error.details[0].message);
 
+  users.push(req.body);
   res.send(users);
 });
 
