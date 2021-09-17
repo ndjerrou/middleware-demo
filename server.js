@@ -2,11 +2,13 @@ const express = require('express');
 const { valid } = require('joi');
 const Joi = require('joi');
 const helmet = require('helmet');
+const morgan = require('morgan');
 
 const app = express();
 
 app.use(express.json()); // first middleware : express.json()
 app.use(helmet()); //Second middleware : set secure headers
+app.use(morgan('tiny')); //Third middleware : log each incoming request
 
 const users = [
   { name: 'Nissim', age: 30, likes: ['football', 'hockey'] },
